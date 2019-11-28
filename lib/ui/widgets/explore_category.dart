@@ -89,11 +89,12 @@ class _ExploreCategoryState extends State<ExploreCategory>
     return views;
   }
 
-  void _countHeightPerView(){
+  void _countHeightPerView() {
     menuList.forEach((category) {
       int heightCount = (menuMap[category].length / 2).floor();
       heightCount = heightCount + (menuMap[category].length % 2);
-      _tabViewHeight.add(heightCount * (_subCategoryHeight + _subCategorySpacing) + 16);
+      _tabViewHeight
+          .add(heightCount * (_subCategoryHeight + _subCategorySpacing) + 16);
     });
     _currentTabViewHeight = _tabViewHeight[0];
   }

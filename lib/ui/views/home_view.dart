@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,10 +14,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
   int _navigationSelected = 0;
 
-  void _navigateTo(int navIndex){
+  void _navigateTo(int navIndex) {
     setState(() {
       _navigationSelected = navIndex;
     });
@@ -26,23 +26,32 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(screenHeight(context), kToolbarHeight + 20 ),
+        preferredSize: Size(screenHeight(context), kToolbarHeight + 20),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
             child: FlatButton(
-              onPressed: (){},
+              onPressed: () {},
               color: searchBarColor,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(25))
-              ),
+                  borderRadius: BorderRadius.all(Radius.circular(25))),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
                 child: Row(
                   children: <Widget>[
-                    Icon(Icons.search, color: searchTextColor,),
-                    SizedBox(width: 8,),
-                    Text('Butuh jasa apa, Mukhtar Fauzi', style: TextStyle(fontWeight: FontWeight.w400, color: searchTextColor),),
+                    Icon(
+                      Icons.search,
+                      color: searchTextColor,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'Butuh jasa apa, Mukhtar Fauzi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400, color: searchTextColor),
+                    ),
                   ],
                 ),
               ),
@@ -55,52 +64,56 @@ class _HomeViewState extends State<HomeView> {
           children: <Widget>[
             Container(
               width: screenWidth(context),
-              height: screenHeight(context, divideBy: 2, reduceBy: kToolbarHeight),
+              height:
+                  screenHeight(context, divideBy: 2, reduceBy: kToolbarHeight),
               child: BannerAdds(),
             ),
             ExploreCategory(),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text('Butuh jasa cleaning service?', style: TextStyle(fontFamily: quicksandFont, fontSize: 28, fontWeight: FontWeight.w900),),
+              child: Text(
+                'Butuh jasa cleaning service?',
+                style: TextStyle(
+                    fontFamily: quicksandFont,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w900),
+              ),
             )
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _navigationSelected,
-        onTap: (navIndex) => _navigateTo(navIndex),
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: accentColor,
-          selectedIconTheme: IconThemeData(
-            color: accentColor
-          ),
-          unselectedIconTheme: IconThemeData(
-            color: Colors.black
-          ),
+          currentIndex: _navigationSelected,
+          onTap: (navIndex) => _navigateTo(navIndex),
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: accentColor,
+          selectedIconTheme: IconThemeData(color: accentColor),
+          unselectedIconTheme: IconThemeData(color: Colors.black),
           showSelectedLabels: true,
-          unselectedLabelStyle: TextStyle(
-            color: Colors.black
-          ),
+          unselectedLabelStyle: TextStyle(color: Colors.black),
           unselectedItemColor: Colors.black,
           showUnselectedLabels: true,
           items: [
-        BottomNavigationBarItem(
-          title: Text('Cari Jasa'),
-          icon: Icon(FontAwesomeIcons.search)
-        ),
-        BottomNavigationBarItem(
-          title: Text('Order'),
-            icon: Icon(FontAwesomeIcons.tasks)
-        ),
-        BottomNavigationBarItem(
-          title: Text('Chat'),
-            icon: Icon(FontAwesomeIcons.rocketchat)
-        ),
-        BottomNavigationBarItem(
-          title: Text('Profil'),
-            icon: Icon(FontAwesomeIcons.user)
-        )
-      ]),
+            BottomNavigationBarItem(
+              title: Text('Cari Jasa'),
+              icon: Icon(FontAwesomeIcons.search),
+            ),
+            BottomNavigationBarItem(
+              title: Text('Order'),
+              icon: Badge(
+                badgeContent: Text('3', style: TextStyle(color: Colors.white),),
+                child: Icon(FontAwesomeIcons.tasks),
+              ),
+            ),
+            BottomNavigationBarItem(
+              title: Text('Chat'),
+              icon: Icon(FontAwesomeIcons.rocketchat),
+            ),
+            BottomNavigationBarItem(
+              title: Text('Profil'),
+              icon: Icon(FontAwesomeIcons.user),
+            )
+          ]),
     );
   }
 }
