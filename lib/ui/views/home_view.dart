@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tuupai/core/data/constant.dart';
 import 'package:tuupai/ui/shares/colors.dart';
 import 'package:tuupai/ui/shares/fonts.dart';
 import 'package:tuupai/ui/shares/screen_size_util.dart';
